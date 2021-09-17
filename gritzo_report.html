@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Personalized Reoprt</title>
+</head>
+<style>
+    @import url('http://fonts.cdnfonts.com/css/akira-expanded');
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Barlow', sans-serif;;
+    }
+    .header{
+        background: #012169;
+    }
+    .page{
+        page-break-after: always;       
+    }
+    .container{
+        max-width: 800px;
+        margin: auto;
+        padding: 0 20px;
+    }
+    .user-name{
+        display: inline-block;
+        margin-left: auto;
+        font-size: 20px;
+        line-height: 24px;
+        text-transform: capitalize;
+        color: #fff;
+        font-weight: 500;
+        font-family: 'Barlow', sans-serif;
+    }
+    .header-content {
+        padding: 0;
+    }
+    .header-content img{
+        max-width: 200px;
+        width: 80%;
+    }
+    .header-content table td{ 
+        width: 50%;
+    }
+    .footer img{
+        width: 100%;
+    }
+    .footer {
+        border-bottom: 1px solid #d9d9d9;
+    }
+    .report-status{
+        font-size: 12px;
+        color: #fff;
+        background: #67bf83;
+        padding: 5px;
+        border-radius: 25px;
+        display: block;
+        text-align: center;
+        max-width: 69px;
+        text-transform: capitalize;
+        margin: 10px auto 0 auto;
+        font-weight: 600; 
+    }
+    h1 {
+        font-size: 24px;
+        line-height: 40px;
+        width: 100%;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 30px 0;
+        font-family: 'Akira Expanded', sans-serif;
+        color: #012169;
+    }
+    table.user-values {
+        width: 100%;
+        text-align: center;
+    }
+    table.user-values td {
+        width: 25%;
+        position: relative;
+        font-size: 18px;
+        font-weight: 500;
+        color: #606161;
+    }
+    table td.bold-td{
+        font-size: 20px;
+        color: #002169;
+        font-weight: 700;
+    }
+    .bmi-range{
+        max-width: 80%;
+        margin: 110px auto 65px auto;
+        
+    }
+    .bmi-range td{
+        height: 20px;
+        border: 1px solid #fff;
+    }
+    .full-width-img{
+        width: 100%;
+        max-width: 520px;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+    .floating-point {
+        position: absolute;
+        right: -17px;
+        top: -25px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .floating-line {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+        height: 38px;
+        border-right: 1px solid black ;
+    }
+    table tr.report-lables td{
+        font-weight: 700;
+    }
+    .box{
+        margin: 50px 20px 50px;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+    }
+    .box-head {
+        padding: 20px 30px;
+        border-bottom: 1px solid #ddd;
+        
+    }
+    .box-head h3{
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #012169;
+        display: inline-block;
+        margin-left: 20px;
+        font-family: 'Akira Expanded', sans-serif;
+        font-weight: 700;
+    }
+    .box-body{
+        padding: 20px 30px;
+    }
+    .box-body p {
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 500;
+        color: #333;
+        margin: 10px 0;
+    }
+    .box-body .or{
+        color: #EB5C49;
+        margin: 10px 0;
+        font-weight: 700;
+    }
+    .box-body table td{
+        vertical-align: baseline;
+        padding-right: 10px;
+    }
+    .last-page{
+        width: 100%;
+    }
+    .table-with-border td{
+        padding: 10px 30px;
+        border: 1px solid #ddd;
+        font-size: 20px;
+        font-weight: 500;
+        color: #333;
+    }
+    .box .box-head img {
+        max-width: 50px;
+    }
+    .box-head.red-head {
+        background: #eb5c46;
+    }
+    .box-head.red-head h3{
+        color: #fff;
+    }
+</style>
+<body>
+    <div class=" page main-block">
+        <div class="header">
+            <div class="container">
+                <div class="header-content">
+                    <table style="width: 100%;"> 
+                        <tr>
+                            <td>
+                                <img src="logo.png">
+                            </td>
+                            <td style="text-align: right;">
+                                <p class="user-name" id="user-name">Monika's Diet Plan</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+                <h1>Monika's BMI Report</h1>
+                <table class="user-values">
+                    <tr>
+                        <td>Age <span class="floating-line"></span></td>
+                        <td>Weight<span class="floating-line"></span></td>
+                        <td>Height<span class="floating-line"></span></td>
+                        <td>BMI</td>
+                    </tr>
+                    <tr>
+                        <td class="bold-td">9 yrs</td>
+                        <td class="bold-td">28 kg</td>
+                        <td class="bold-td">52.4 cm</td>
+                        <td class="bold-td">24.2</td>
+                    </tr>
+                </table>
+                <div style="width: 25%; float: right;">
+                    <span class="report-status">healthy</span>
+                </div>
+                <table class="user-values bmi-range">
+                    <tr>
+                        <td style="background: #4592ff; border-radius: 25px 0 0 25px;"><span class="floating-point">18.5</span></td>
+                        <td style="background: #3dc47e;"><span class="floating-point">24.2</span></td>
+                        <td style="background: #ffa34d;"><span class="floating-point">29.9</span></td>
+                        <td style="background: #ff4f52; border-radius: 0 25px 25px 0;"></td>
+                    </tr>
+                    <tr class="report-lables">
+                        <td>Low</td>
+                        <td>Healthy</td>
+                        <td>High</td>
+                        <td>Obese</td>
+                    </tr>
+                </table>
+                <div style="text-align: center;">
+                    <img src="kidsImage.png" class="full-width-img">
+                </div>
+                
+        </div>
+        <div class="footer">
+            <div class="container">
+                <img src="footer vector.png">
+            </div>
+        </div>
+    </div>
+
+    <!-- page 2 -->
+    <div class=" page main-block">
+            <div class="header">
+                <div class="container">
+                    <div class="header-content">
+                        <table style="width: 100%;"> 
+                            <tr>
+                                <td>
+                                    <img src="logo.png">
+                                </td>
+                                <td style="text-align: right;">
+                                    <p class="user-name" id="user-name">Monika's Reoprt</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="box">
+                    <div class="box-head">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="breakfast.png">
+                                </td>
+                                <td>
+                                    <h3>Breakfast</h3>
+                                </td>
+                            </tr>
+                        </table>                        
+                    </div>
+                    <div class="box-body">
+                        <p>Milk (1cup) with veg vermiceli (1 Bowl)</p>
+                        <p class="or">or</p>
+                        <p>Milk (1cup) with veg vermiceli (1 Bowl)</p>
+                        <p class="or">or</p>
+                        <p>Milk (1cup) with veg vermiceli (1 Bowl)</p>
+                        <p class="or">or</p>
+                        <p>Milk (1cup) with veg vermiceli (1 Bowl)</p>
+                        <p class="or">or</p>
+                        <p>Milk (1cup) with veg vermiceli (1 Bowl)</p>
+                    </div>
+                </div> 
+                
+                <div class="box">
+                    <div class="box-head">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="mid morning.png">
+                                </td>
+                                <td>
+                                    <h3>Mid Morning</h3>
+                                </td>
+                            </tr>
+                        </table>                        
+                    </div>
+                    <div class="box-body">
+                        <p>Milk (1cup) with veg vermiceli (1 Bowl)</p>
+                        <p class="or">or</p>
+                        <p>Milk (1cup) with veg vermiceli (1 Bowl)</p>
+                    </div>
+                </div> 
+            </div>
+            <div class="footer">
+                <div class="container">
+                    <img src="footer vector.png">
+                </div>
+            </div>
+        </div>
+
+    <!-- page 3 -->
+    <div class=" page main-block">
+            <div class="header">
+                <div class="container">
+                    <div class="header-content">
+                        <table style="width: 100%;"> 
+                            <tr>
+                                <td>
+                                    <img src="logo.png">
+                                </td>
+                                <td style="text-align: right;">
+                                    <p class="user-name" id="user-name">Monika's Reoprt</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="box">
+                    <div class="box-head">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="lunch.png">
+                                </td>
+                                <td>
+                                    <h3>Lunch</h3>
+                                </td>
+                            </tr>
+                        </table>                        
+                    </div>
+                    <!-- <div class="box-body">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 20%;"><p class="or">Cereals</p></td>
+                                <td ><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                            </tr>
+                            <tr>
+                                <td><p class="or">Cereals</p></td>
+                                <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                            </tr>
+                            <tr>
+                                <td><p class="or">Cereals</p></td>
+                                <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><p class="or">or</p></td>
+                            </tr>
+                            <tr>
+                                <td><p class="or">Cereals</p></td>
+                                <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                            </tr>
+                            <tr>
+                                    <td><p class="or">Cereals</p></td>
+                                    <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                            </tr>
+                        </table>
+                    </div> -->
+                    <div class="box-body">
+                        <table style="width: 100%;">
+                                <tr>
+                                    <td ><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="or">or</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                                </tr>
+                                <tr>
+                                        <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                                </tr>
+                        </table>
+                    </div>
+                </div> 
+                
+                <div class="box">
+                    <div class="box-head">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="snack.png">
+                                </td>
+                                <td>
+                                    <h3>Snacks</h3>
+                                </td>
+                            </tr>
+                        </table>                        
+                    </div>
+                    <div class="box-body">
+                        <p>Milk (200ML) + <br> Gritzo SuperMilk Height (8 - 12 yrs)(30 Gms) </p>
+                    </div>
+                </div> 
+            </div>
+            <div class="footer">
+                <div class="container">
+                    <img src="footer vector.png">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- page 4 -->
+    <div class=" page main-block">
+            <div class="header">
+                <div class="container">
+                    <div class="header-content">
+                        <table style="width: 100%;"> 
+                            <tr>
+                                <td>
+                                    <img src="logo.png">
+                                </td>
+                                <td style="text-align: right;">
+                                    <p class="user-name" id="user-name">Monika's Reoprt</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="box">
+                    <div class="box-head">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="night.png">
+                                </td>
+                                <td>
+                                    <h3>Dinner</h3>
+                                </td>
+                            </tr>
+                        </table>                        
+                    </div>
+                    <div class="box-body">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td ><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Rice (1 Bowl)/ Chapati (1 or 2 chapati)/ Puri (2)</p></td>
+                            </tr>
+                            <tr>
+                                <td><p class="or">or</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Curd (1 Bowl)</p></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div> 
+                
+                <div class="box" style="border:0;">
+                        <div class="box-head red-head" style="border-radius: 25px 25px 0 0; border: 1px solid #ddd; border-bottom: 0;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h3 style="text-transform: none; margin: 0;">Nutrition value</h3>
+                                    </td>
+                                </tr>
+                            </table>                        
+                        </div>
+                            <table class="table-with-border" style="width: 100%; border-collapse: collapse;">
+                                <tr>
+                                    <td style="width: 20%;"><p >Energy</p></td>
+                                    <td ><p style="font-weight: 700;  padding-left: 20%;">2150 kcal</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p>Protein</p></td>
+                                    <td><p style="font-weight: 700; padding-left: 20%;">33.2 gms</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p >Fat</p></td>
+                                    <td><p style="font-weight: 700; padding-left: 20%;">37.1 gms</p></td>
+                                </tr>
+                                <tr>
+                                    <td><p >Zinc</p></td>
+                                    <td><p style="font-weight: 700; padding-left: 20%;">8.9 mg</p></td>
+                                </tr>
+                                <tr>
+                                        <td style="border-radius: 0 0 0 25px;"><p>Calcium</p></td>
+                                        <td style="border-radius: 0 0 25px 0"><p style="font-weight: 700; padding-left: 20%;">860 mg</p></td>
+                                </tr>
+                            </table>
+                    </div>  
+            </div>
+            <div class="footer">
+                <div class="container">
+                    <img src="footer vector.png">
+                </div>
+            </div>
+        </div>
+
+           <!-- page 5 -->
+    <div class=" page main-block">
+        <div class="container">
+            <img class="last-page" src="last-page.png">
+        </div>
+    </div>
+        
+</div>
+</body>
+</html>
